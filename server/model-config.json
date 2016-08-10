@@ -13,22 +13,35 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "db"
+  "user": {
+    "dataSource": "db",
+    "public": true
   },
-  "AccessToken": {
+  "role": {
+    "dataSource": "db",
+    "public": true
+  },
+  "roleMapping": {
     "dataSource": "db",
     "public": false
   },
-  "ACL": {
+  "acl": {
     "dataSource": "db",
     "public": false
   },
-  "RoleMapping": {
+  "accessToken": {
     "dataSource": "db",
     "public": false
   },
-  "Role": {
+  "account": {
+    "dataSource": "db",
+    "public": true
+  },
+  "accountUser": {
+    "dataSource": "db",
+    "public": false
+  },
+  "baseRoleTracking": {
     "dataSource": "db",
     "public": false
   }
