@@ -1,0 +1,49 @@
+{
+  "name": "account",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "default": "$now"
+    },
+    "modified": {
+      "type": "date",
+      "default": "$now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "hasMany",
+      "model": "user",
+      "foreignKey": "userId",
+      "through": "accountUser"
+    },
+    "createdByUser": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "createdByUserId"
+    },
+    "createdByAccount": {
+      "type": "belongsTo",
+      "model": "account",
+      "foreignKey": "createdByAccountId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
